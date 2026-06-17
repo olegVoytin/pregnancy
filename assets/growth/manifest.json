@@ -1,0 +1,42 @@
+{
+  "comparisonReference": {
+    "name": "Новорождённый",
+    "lengthCm": 50,
+    "asset": "reference/newborn.png"
+  },
+  "weeks": [
+    { "week": 8, "name": "Малина", "asset": "fruits/week-08-raspberry.png" },
+    { "week": 9, "name": "Вишня", "asset": "fruits/week-09-cherry.png" },
+    { "week": 10, "name": "Клубника", "asset": "fruits/week-10-strawberry.png" },
+    { "week": 11, "name": "Инжир", "asset": "fruits/week-11-fig.png" },
+    { "week": 12, "name": "Лайм", "asset": "fruits/week-12-lime.png" },
+    { "week": 13, "name": "Персик", "asset": "fruits/week-13-peach.png" },
+    { "week": 14, "name": "Киви", "asset": "fruits/week-14-kiwi.png" },
+    { "week": 15, "name": "Апельсин", "asset": "fruits/week-15-orange.png" },
+    { "week": 16, "name": "Авокадо", "asset": "fruits/week-16-avocado.png" },
+    { "week": 17, "name": "Гранат", "asset": "fruits/week-17-pomegranate.png" },
+    { "week": 18, "name": "Груша", "asset": "fruits/week-18-pear.png" },
+    { "week": 19, "name": "Манго", "asset": "fruits/week-19-mango.png" },
+    { "week": 20, "name": "Банан", "asset": "fruits/week-20-banana.png" },
+    { "week": 21, "name": "Грейпфрут", "asset": "fruits/week-21-grapefruit.png" },
+    { "week": 22, "name": "Папайя", "asset": "fruits/week-22-papaya.png" },
+    { "week": 23, "name": "Питахайя", "asset": "fruits/week-23-dragon-fruit.png" },
+    { "week": 24, "name": "Небольшая дыня", "asset": "fruits/week-24-small-melon.png" },
+    { "week": 25, "name": "Помело", "asset": "fruits/week-25-pomelo.png" },
+    { "week": 26, "name": "Огурец", "asset": "fruits/week-26-cucumber.png" },
+    { "week": 27, "name": "Кабачок", "asset": "fruits/week-27-zucchini.png" },
+    { "week": 28, "name": "Баклажан", "asset": "fruits/week-28-eggplant.png" },
+    { "week": 29, "name": "Мускатная тыква", "asset": "fruits/week-29-butternut-squash.png" },
+    { "week": 30, "name": "Кокос", "asset": "fruits/week-30-coconut.png" },
+    { "week": 31, "name": "Ананас", "asset": "fruits/week-31-pineapple.png" },
+    { "week": 32, "name": "Крупный ананас", "asset": "fruits/week-32-large-pineapple.png" },
+    { "week": 33, "name": "Дыня", "asset": "fruits/week-33-melon.png" },
+    { "week": 34, "name": "Мускусная дыня", "asset": "fruits/week-34-cantaloupe.png" },
+    { "week": 35, "name": "Крупная папайя", "asset": "fruits/week-35-large-papaya.png" },
+    { "week": 36, "name": "Салат ромэн", "asset": "fruits/week-36-romaine-lettuce.png" },
+    { "week": 37, "name": "Мангольд", "asset": "fruits/week-37-swiss-chard.png" },
+    { "week": 38, "name": "Лук-порей", "asset": "fruits/week-38-leek.png" },
+    { "week": 39, "name": "Арбуз", "asset": "fruits/week-39-watermelon.png" },
+    { "week": 40, "name": "Тыква", "asset": "fruits/week-40-pumpkin.png" }
+  ]
+}

@@ -9,6 +9,24 @@ const confidenceLabels = {
   low: "неуверенно"
 };
 
+const growthMeasurements = [
+  [8, 1.6, 1, "малину"], [9, 2.3, 2, "вишню"], [10, 3.1, 4, "клубнику"],
+  [11, 4.1, 7, "инжир"], [12, 5.4, 14, "лайм"], [13, 7.4, 23, "персик"],
+  [14, 8.7, 43, "киви"], [15, 10.1, 70, "апельсин"], [16, 11.6, 100, "авокадо"],
+  [17, 13, 140, "гранат"], [18, 14.2, 190, "грушу"], [19, 15.3, 240, "манго"],
+  [20, 25.6, 300, "банан"], [21, 26.7, 360, "грейпфрут"], [22, 27.8, 430, "папайю"],
+  [23, 28.9, 500, "питахайю"], [24, 30, 600, "небольшую дыню"], [25, 34.6, 660, "помело"],
+  [26, 35.6, 760, "огурец"], [27, 36.6, 875, "кабачок"], [28, 37.6, 1000, "баклажан"],
+  [29, 38.6, 1150, "мускатную тыкву"], [30, 39.9, 1320, "кокос"], [31, 41.1, 1500, "ананас"],
+  [32, 42.4, 1700, "крупный ананас"], [33, 43.7, 1920, "дыню"], [34, 45, 2150, "мускусную дыню"],
+  [35, 46.2, 2380, "крупную папайю"], [36, 47.4, 2620, "салат ромэн"], [37, 48.6, 2860, "мангольд"],
+  [38, 49.8, 3080, "лук-порей"], [39, 50.7, 3290, "арбуз"], [40, 51.2, 3460, "тыкву"]
+].map(([week, lengthCm, weightG, comparisonName]) => ({ week, lengthCm, weightG, comparisonName }));
+
+let growthWeeks = [];
+let currentGrowthWeek = null;
+let selectedGrowthWeek = null;
+
 function parseIsoDate(value) {
   const [year, month, day] = value.split("-").map(Number);
   return new Date(Date.UTC(year, month - 1, day));
@@ -53,6 +71,88 @@ function getGestationalAge(currentDate) {
     days: days % 7,
     totalDays: days
   };
+}
+
+function formatDecimal(value) {
+  return value.toLocaleString("ru-RU", { maximumFractionDigits: 1 });
+}
+
+function formatWeight(value) {
+  if (value >= 1000) {
+    return `≈ ${formatDecimal(value / 1000)} кг`;
+  }
+  return `≈ ${value} г`;
+}
+
+function weekLabel(week) {
+  return `${week} неделя`;
+}
+
+function clampGrowthWeek(week) {
+  return Math.min(40, Math.max(8, week));
+}
+
+function renderGrowthWeek(week) {
+  const item = growthWeeks.find((candidate) => candidate.week === week);
+  if (!item) return;
+
+  selectedGrowthWeek = item.week;
+  const lengthText = `≈ ${formatDecimal(item.lengthCm)} см`;
+  document.getElementById("growth-title").textContent = item.week === currentGrowthWeek
+    ? `Сегодня малыш размером с ${item.comparisonName}`
+    : `На ${item.week}-й неделе малыш размером с ${item.comparisonName}`;
+  document.getElementById("growth-week").textContent = weekLabel(item.week);
+  document.getElementById("growth-length").textContent = lengthText;
+  document.getElementById("growth-weight").textContent = formatWeight(item.weightG);
+
+  const fruit = document.getElementById("growth-fruit");
+  fruit.src = `assets/growth/${item.asset}`;
+  fruit.alt = `${item.name} — сравнение для ${item.week}-й недели беременности`;
+  document.getElementById("growth-fruit-caption").textContent = `сейчас ${lengthText}`;
+
+  const proportionalWidth = Math.max(3.2, Math.min(45, (item.lengthCm / 50) * 44));
+  document.getElementById("growth-fruit-figure").style.setProperty("--fruit-width", `${proportionalWidth}%`);
+
+  const previous = document.querySelector('[data-growth-action="previous"]');
+  const next = document.querySelector('[data-growth-action="next"]');
+  previous.disabled = item.week === 8;
+  next.disabled = item.week === 40;
+  document.getElementById("growth-card").classList.toggle("is-current-week", item.week === currentGrowthWeek);
+}
+
+async function renderGrowthCard(currentDate) {
+  const gestation = getGestationalAge(currentDate);
+  currentGrowthWeek = clampGrowthWeek(gestation.weeks);
+
+  try {
+    const response = await fetch("assets/growth/manifest.json");
+    if (!response.ok) throw new Error(`Growth manifest: ${response.status}`);
+    const manifest = await response.json();
+    growthWeeks = manifest.weeks.map((item) => ({
+      ...item,
+      ...growthMeasurements.find((measurement) => measurement.week === item.week)
+    }));
+    renderGrowthWeek(currentGrowthWeek);
+  } catch (error) {
+    document.getElementById("growth-title").textContent = "Сравнение временно недоступно";
+    document.getElementById("growth-card").classList.add("has-error");
+    console.error(error);
+  }
+}
+
+function bindGrowthControls() {
+  document.getElementById("growth-card").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-growth-action]");
+    if (!button || button.disabled || !growthWeeks.length) return;
+
+    if (button.dataset.growthAction === "current") {
+      renderGrowthWeek(currentGrowthWeek);
+      return;
+    }
+
+    const direction = button.dataset.growthAction === "previous" ? -1 : 1;
+    renderGrowthWeek(clampGrowthWeek(selectedGrowthWeek + direction));
+  });
 }
 
 function createBadge(confidence) {
@@ -364,6 +464,7 @@ function bindSectionObserver() {
 function init() {
   const currentDate = todayFromQuery();
   renderStatus(currentDate);
+  renderGrowthCard(currentDate);
   renderEvents(currentDate);
   renderScreenings();
   renderVisits();
@@ -372,6 +473,7 @@ function init() {
   renderVerification();
   renderSources();
   bindFilters(currentDate);
+  bindGrowthControls();
   bindRowNotes();
   bindDocumentChecklist();
   bindSectionObserver();

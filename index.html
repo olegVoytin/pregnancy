@@ -59,6 +59,45 @@
         </div>
       </section>
 
+      <section class="growth-card section-block" id="growth-card" aria-labelledby="growth-title">
+        <div class="growth-copy">
+          <p class="section-label">Какой он сейчас фрукт</p>
+          <h2 id="growth-title">Загружаем сравнение…</h2>
+          <div class="growth-metrics" aria-live="polite">
+            <div>
+              <strong id="growth-week">—</strong>
+              <span>срок</span>
+            </div>
+            <div>
+              <strong id="growth-length">—</strong>
+              <span>рост</span>
+            </div>
+            <div>
+              <strong id="growth-weight">—</strong>
+              <span>вес</span>
+            </div>
+          </div>
+          <p class="growth-note">примерные значения</p>
+        </div>
+        <div class="growth-visual">
+          <div class="growth-comparison" aria-label="Сравнение текущего размера малыша с размером при рождении">
+            <figure class="growth-figure growth-fruit-figure" id="growth-fruit-figure">
+              <img id="growth-fruit" src="" alt="">
+              <figcaption id="growth-fruit-caption">сейчас</figcaption>
+            </figure>
+            <figure class="growth-figure growth-newborn-figure">
+              <img src="assets/growth/reference/newborn.png" alt="Новорождённый ребёнок в пелёнке">
+              <figcaption>при рождении ≈ 50 см</figcaption>
+            </figure>
+          </div>
+          <div class="growth-controls" role="group" aria-label="Переключение недель">
+            <button type="button" data-growth-action="current">Сейчас</button>
+            <button type="button" data-growth-action="previous">Назад</button>
+            <button type="button" data-growth-action="next">Вперёд</button>
+          </div>
+        </div>
+      </section>
+
       <section class="section-block timeline-block" aria-labelledby="timeline-title">
         <div class="section-heading">
           <div>
