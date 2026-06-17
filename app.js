@@ -1,6 +1,7 @@
 const data = window.PREGNANCY_DASHBOARD_DATA;
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
+const documentChecklistStorageKey = "pregnancy-dashboard-document-checklist";
 const confidenceLabels = {
   high: "подтверждено",
   medium: "проверить",
@@ -55,6 +56,19 @@ function getGestationalAge(currentDate) {
 
 function createBadge(confidence) {
   return `<span class="confidence confidence-${confidence}">${confidenceLabels[confidence] || confidence}</span>`;
+}
+
+function getSavedDocumentChecklist() {
+  try {
+    const saved = JSON.parse(window.localStorage.getItem(documentChecklistStorageKey) || "[]");
+    return new Set(Array.isArray(saved) ? saved : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveDocumentChecklist(checkedItems) {
+  window.localStorage.setItem(documentChecklistStorageKey, JSON.stringify(Array.from(checkedItems)));
 }
 
 function eventState(event, currentDate) {
@@ -208,9 +222,10 @@ function renderPhases() {
 }
 
 function renderDocuments() {
+  const checkedItems = getSavedDocumentChecklist();
   document.getElementById("document-list").innerHTML = data.documents.map((item) => `
     <label class="check-row">
-      <input type="checkbox">
+      <input type="checkbox" data-document="${item}" ${checkedItems.has(item) ? "checked" : ""}>
       <span>${item}</span>
     </label>
   `).join("");
@@ -263,6 +278,21 @@ function bindRowNotes() {
   });
 }
 
+function bindDocumentChecklist() {
+  document.getElementById("document-list").addEventListener("change", (event) => {
+    const checkbox = event.target.closest('input[type="checkbox"][data-document]');
+    if (!checkbox) return;
+
+    const checkedItems = getSavedDocumentChecklist();
+    if (checkbox.checked) {
+      checkedItems.add(checkbox.dataset.document);
+    } else {
+      checkedItems.delete(checkbox.dataset.document);
+    }
+    saveDocumentChecklist(checkedItems);
+  });
+}
+
 function bindSectionObserver() {
   const links = Array.from(document.querySelectorAll("[data-nav]"));
   const sections = Array.from(document.querySelectorAll("[data-section]"));
@@ -288,6 +318,7 @@ function init() {
   renderSources();
   bindFilters(currentDate);
   bindRowNotes();
+  bindDocumentChecklist();
   bindSectionObserver();
 }
 
