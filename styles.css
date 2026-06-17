@@ -380,6 +380,10 @@ h3 {
   position: relative;
 }
 
+.event-content {
+  padding-left: 8px;
+}
+
 .event-line::before {
   content: "";
   position: absolute;
