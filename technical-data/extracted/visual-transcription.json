@@ -1,0 +1,247 @@
+{
+  "created_at": "2026-06-17",
+  "method": "manual_visual_transcription_from_local_photos",
+  "source_manifest": "technical-data/manifest.json",
+  "important_note": "This is a visual transcription of visible text and handwriting from photos. It is not medical interpretation. Uncertain fields must be checked against the original images and/or a clinician.",
+  "patient": {
+    "name": {
+      "value": "VOITINA, GALINA",
+      "source_images": ["pregnancy-info-01", "pregnancy-info-02"],
+      "confidence": "high"
+    },
+    "date_of_birth": {
+      "value": "1994-07-10",
+      "source_images": ["pregnancy-info-01", "pregnancy-info-02"],
+      "confidence": "high"
+    }
+  },
+  "document": {
+    "type": "Mutterpass",
+    "language": "German",
+    "edition_or_print_date": {
+      "value": "September 2023",
+      "source_images": ["pregnancy-info-01"],
+      "confidence": "high"
+    }
+  },
+  "key_dates": {
+    "last_period": {
+      "value": "2026-03-25",
+      "source_images": ["pregnancy-info-03"],
+      "confidence": "high"
+    },
+    "pregnancy_confirmed_on": {
+      "value": "2026-05-12",
+      "gestational_age_at_confirmation": "6+6 SSW",
+      "source_images": ["pregnancy-info-03"],
+      "confidence": "medium"
+    },
+    "calculated_due_date": {
+      "value": "2026-12-30",
+      "source_images": ["pregnancy-info-03"],
+      "confidence": "high"
+    }
+  },
+  "lab_tests": [
+    {
+      "test": "HIV-Suchtest",
+      "result_or_status": "durchgefuehrt",
+      "date": "2026-05-13",
+      "lab_or_code": "DR 6E13 2243",
+      "institution_text": "Praxis fuer Labormedizin und Mikrobiologie",
+      "source_images": ["pregnancy-info-02"],
+      "confidence": "high"
+    }
+  ],
+  "prenatal_visits_gravidogramm": [
+    {
+      "row": 1,
+      "date": "2026-05-12",
+      "gestational_age": "6+6",
+      "fundus_or_symphysis": "S",
+      "fetal_heart_sounds": "+",
+      "hb": "124",
+      "notes": "Handwritten note in Sonstiges/Therapie area appears to contain 'SSW Serum' or similar; exact wording unclear.",
+      "source_images": ["pregnancy-info-04"],
+      "confidence": "medium"
+    },
+    {
+      "row": 2,
+      "date": "2026-06-12",
+      "gestational_age": "11+2",
+      "fundus_or_symphysis": "2/S or 2/5",
+      "fetal_heart_sounds": "++",
+      "weight_kg": "54,7",
+      "blood_pressure": "120/80",
+      "urine_protein": "+",
+      "urine_sugar": "-",
+      "vaginal_exam": "handwriting unclear",
+      "notes": "Several handwritten notes in Sonstiges/Therapie are unclear; possible references to NIPT/RhD, but not reliable enough to store as fact.",
+      "source_images": ["pregnancy-info-04"],
+      "confidence": "low"
+    }
+  ],
+  "ultrasound_screenings": [
+    {
+      "screening": "I. Screening",
+      "date": "2026-06-12",
+      "gestational_age_lr": "11+2",
+      "gestational_age_corrected": null,
+      "intrauterine_location": {
+        "value": "ja",
+        "confidence": "high"
+      },
+      "embryo_visible": {
+        "value": "ja",
+        "confidence": "high"
+      },
+      "heart_action": {
+        "value": "ja",
+        "confidence": "high"
+      },
+      "multiple_pregnancy": {
+        "value": "probably nein",
+        "confidence": "medium"
+      },
+      "monochorial": {
+        "value": "nein or not applicable",
+        "confidence": "low"
+      },
+      "abnormalities": {
+        "value": "nein",
+        "confidence": "medium"
+      },
+      "timely_development": {
+        "value": "ja",
+        "confidence": "high"
+      },
+      "consultation_requested": {
+        "value": "nein",
+        "confidence": "high"
+      },
+      "measurements": {
+        "SSL_mm": {
+          "value": "53,5",
+          "confidence": "high"
+        },
+        "BPD_mm": {
+          "value": "18,4",
+          "confidence": "medium"
+        }
+      },
+      "source_images": ["pregnancy-info-05"]
+    }
+  ],
+  "risk_catalog_or_special_findings": {
+    "visible_markings": [
+      {
+        "description": "On the left margin of the special findings/risk catalogue pages there are handwritten marks near several items. Exact mapping to risk numbers is unclear from the photos.",
+        "source_images": ["pregnancy-info-03", "pregnancy-info-11"],
+        "confidence": "low"
+      }
+    ],
+    "clear_text_entries": []
+  },
+  "reviewed_pages": [
+    {
+      "image_id": "pregnancy-info-01",
+      "status": "transcribed",
+      "summary": "Mutterpass cover with handwritten patient name and date of birth."
+    },
+    {
+      "image_id": "pregnancy-info-02",
+      "status": "transcribed",
+      "summary": "HIV-Suchtest sticker."
+    },
+    {
+      "image_id": "pregnancy-info-03",
+      "status": "partially_transcribed",
+      "summary": "Terminbestimmung and part of special findings page."
+    },
+    {
+      "image_id": "pregnancy-info-04",
+      "status": "partially_transcribed",
+      "summary": "Gravidogramm with two handwritten visit rows; some handwriting uncertain."
+    },
+    {
+      "image_id": "pregnancy-info-05",
+      "status": "transcribed",
+      "summary": "First ultrasound screening with visible measurements."
+    },
+    {
+      "image_id": "pregnancy-info-06",
+      "status": "reviewed_empty",
+      "summary": "Ultrasound control/growth curves page without visible handwritten entries."
+    },
+    {
+      "image_id": "pregnancy-info-07",
+      "status": "reviewed_empty",
+      "summary": "Further ultrasound and epikrise page without visible handwritten entries."
+    },
+    {
+      "image_id": "pregnancy-info-08",
+      "status": "reviewed_empty",
+      "summary": "Postpartum/further pregnancy stamp pages without visible entries."
+    },
+    {
+      "image_id": "pregnancy-info-09",
+      "status": "reviewed_empty",
+      "summary": "Laboratory/rubella/chlamydia/HBs antigen form pages without visible filled entries."
+    },
+    {
+      "image_id": "pregnancy-info-10",
+      "status": "reviewed_empty",
+      "summary": "Fetal RhD/NIPT-RhD and previous pregnancies page without visible filled entries."
+    },
+    {
+      "image_id": "pregnancy-info-11",
+      "status": "partially_transcribed",
+      "summary": "Special findings catalogue page with unclear side-margin marks; no clear written details."
+    },
+    {
+      "image_id": "pregnancy-info-12",
+      "status": "reviewed_empty",
+      "summary": "Empty gravidogramm continuation."
+    },
+    {
+      "image_id": "pregnancy-info-13",
+      "status": "reviewed_empty",
+      "summary": "Special findings/stationary treatment/CTG page without visible entries."
+    },
+    {
+      "image_id": "pregnancy-info-14",
+      "status": "reviewed_empty",
+      "summary": "Ultrasound screening form continuation without visible entries."
+    },
+    {
+      "image_id": "pregnancy-info-15",
+      "status": "reviewed_empty",
+      "summary": "Ultrasound control investigations page without visible entries."
+    },
+    {
+      "image_id": "pregnancy-info-16",
+      "status": "reviewed_empty",
+      "summary": "Growth curve page without visible plotted entries."
+    },
+    {
+      "image_id": "pregnancy-info-17",
+      "status": "reviewed_empty",
+      "summary": "Further ultrasound/Doppler page without visible entries."
+    },
+    {
+      "image_id": "pregnancy-info-18",
+      "status": "reviewed_empty",
+      "summary": "Epikrise page without visible entries."
+    },
+    {
+      "image_id": "pregnancy-info-19",
+      "status": "reviewed_empty",
+      "summary": "Postpartum examination page without visible entries."
+    },
+    {
+      "image_id": "pregnancy-info-20",
+      "status": "reviewed_template_text",
+      "summary": "Printed note to mother; no pregnancy-specific handwritten entries."
+    }
+  ]
+}

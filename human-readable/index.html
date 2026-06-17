@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Материалы беременности</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f3ef;
+      --ink: #2f2a27;
+      --muted: #746a64;
+      --line: #ddd1c8;
+      --accent: #9a5f55;
+      --surface: #fffaf6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 32px clamp(18px, 4vw, 48px) 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 680;
+      letter-spacing: 0;
+    }
+
+    .summary {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 28px auto 56px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .document-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgba(47, 42, 39, 0.06);
+    }
+
+    .image-link {
+      display: block;
+      background: #ede5df;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .document-meta {
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 4px;
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+
+    p { margin: 0; }
+
+    .document-meta p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 18px clamp(18px, 4vw, 48px);
+      color: var(--muted);
+      background: var(--surface);
+      font-size: 13px;
+    }
+
+    @media print {
+      body { background: white; }
+      header, footer { background: white; }
+      main { width: 100%; margin: 16px 0; padding: 0 12px; }
+      .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .document-card { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Материалы беременности</h1>
+    <p class="summary">Читаемая локальная версия предоставленных изображений. Нажмите на любой материал, чтобы открыть его в полном размере.</p>
+  </header>
+  <main>
+    <div class="toolbar">
+      <span>20 материалов</span>
+      <a href="recognized-text/visual-transcription.md">Расшифровка</a>
+      <span>Оригиналы: ../technical-data/source-images</span>
+    </div>
+    <section class="gallery" aria-label="Галерея материалов">
+      <article class="document-card" id="pregnancy-info-01">
+        <a class="image-link" href="images/pregnancy-info-01.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-01.jpg" alt="Материал 01" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 01</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-02">
+        <a class="image-link" href="images/pregnancy-info-02.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-02.jpg" alt="Материал 02" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 02</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-03">
+        <a class="image-link" href="images/pregnancy-info-03.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-03.jpg" alt="Материал 03" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 03</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-04">
+        <a class="image-link" href="images/pregnancy-info-04.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-04.jpg" alt="Материал 04" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 04</h2>
+          <p>Рендер Photos</p>
+          <p>2400 x 1800 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-05">
+        <a class="image-link" href="images/pregnancy-info-05.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-05.jpg" alt="Материал 05" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 05</h2>
+          <p>Рендер Photos</p>
+          <p>2400 x 1800 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-06">
+        <a class="image-link" href="images/pregnancy-info-06.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-06.jpg" alt="Материал 06" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 06</h2>
+          <p>Рендер Photos</p>
+          <p>2400 x 1800 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-07">
+        <a class="image-link" href="images/pregnancy-info-07.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-07.jpg" alt="Материал 07" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 07</h2>
+          <p>Рендер Photos</p>
+          <p>2400 x 1800 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-08">
+        <a class="image-link" href="images/pregnancy-info-08.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-08.jpg" alt="Материал 08" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 08</h2>
+          <p>Рендер Photos</p>
+          <p>2400 x 1800 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-09">
+        <a class="image-link" href="images/pregnancy-info-09.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-09.jpg" alt="Материал 09" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 09</h2>
+          <p>Рендер Photos</p>
+          <p>2400 x 1800 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-10">
+        <a class="image-link" href="images/pregnancy-info-10.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-10.jpg" alt="Материал 10" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 10</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-11">
+        <a class="image-link" href="images/pregnancy-info-11.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-11.jpg" alt="Материал 11" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 11</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-12">
+        <a class="image-link" href="images/pregnancy-info-12.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-12.jpg" alt="Материал 12" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 12</h2>
+          <p>Рендер Photos</p>
+          <p>2400 x 1800 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-13">
+        <a class="image-link" href="images/pregnancy-info-13.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-13.jpg" alt="Материал 13" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 13</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-14">
+        <a class="image-link" href="images/pregnancy-info-14.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-14.jpg" alt="Материал 14" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 14</h2>
+          <p>Рендер Photos</p>
+          <p>2400 x 1800 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-15">
+        <a class="image-link" href="images/pregnancy-info-15.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-15.jpg" alt="Материал 15" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 15</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-16">
+        <a class="image-link" href="images/pregnancy-info-16.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-16.jpg" alt="Материал 16" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 16</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-17">
+        <a class="image-link" href="images/pregnancy-info-17.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-17.jpg" alt="Материал 17" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 17</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-18">
+        <a class="image-link" href="images/pregnancy-info-18.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-18.jpg" alt="Материал 18" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 18</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-19">
+        <a class="image-link" href="images/pregnancy-info-19.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-19.jpg" alt="Материал 19" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 19</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+      <article class="document-card" id="pregnancy-info-20">
+        <a class="image-link" href="images/pregnancy-info-20.jpg" target="_blank" rel="noreferrer">
+          <img src="images/pregnancy-info-20.jpg" alt="Материал 20" loading="lazy">
+        </a>
+        <div class="document-meta">
+          <h2>Материал 20</h2>
+          <p>Оригинал Photos</p>
+          <p>1800 x 2400 px</p>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer>
+    Данные организованы без OCR и медицинской интерпретации. Технический манифест: ../technical-data/manifest.json
+  </footer>
+</body>
+</html>
