@@ -693,13 +693,13 @@ tbody tr:last-child td {
 
 .source-thumb {
   display: block;
+  width: 100%;
   aspect-ratio: 3 / 4;
   margin-bottom: 8px;
   border-radius: 5px;
-  background:
-    linear-gradient(180deg, rgba(255, 253, 249, 0.92), rgba(239, 228, 220, 0.92)),
-    repeating-linear-gradient(180deg, transparent 0 11px, rgba(118, 109, 102, 0.14) 12px 13px);
+  background: #efe4dc;
   border: 1px solid rgba(229, 216, 206, 0.9);
+  object-fit: cover;
 }
 
 .source-card strong {

@@ -238,7 +238,7 @@ function renderVerification() {
 function renderSources() {
   document.getElementById("source-strip").innerHTML = data.sources.map((source) => `
     <a class="source-card" href="${source.href}">
-      <span class="source-thumb" aria-hidden="true"></span>
+      <img class="source-thumb" src="${source.href}" alt="${source.id}" loading="lazy">
       <strong>${source.id.replace("pregnancy-info-", "#")}</strong>
       <small>${source.status.replaceAll("_", " ")}</small>
     </a>
