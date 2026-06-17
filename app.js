@@ -2,6 +2,7 @@ const data = window.PREGNANCY_DASHBOARD_DATA;
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 const documentChecklistStorageKey = "pregnancy-dashboard-document-checklist";
+const documentChecklistCookieMaxAge = 60 * 60 * 24 * 365;
 const confidenceLabels = {
   high: "подтверждено",
   medium: "проверить",
@@ -58,17 +59,66 @@ function createBadge(confidence) {
   return `<span class="confidence confidence-${confidence}">${confidenceLabels[confidence] || confidence}</span>`;
 }
 
+function documentChecklistId(index) {
+  return `document-${index}`;
+}
+
+function getCookieValue(name) {
+  try {
+    const prefix = `${name}=`;
+    const cookie = document.cookie
+      .split("; ")
+      .find((item) => item.startsWith(prefix));
+    return cookie ? decodeURIComponent(cookie.slice(prefix.length)) : null;
+  } catch {
+    return null;
+  }
+}
+
+function getStoredDocumentChecklistText() {
+  try {
+    const saved = window.localStorage.getItem(documentChecklistStorageKey);
+    if (saved) return saved;
+  } catch {
+    // Safari can throw here when local storage is unavailable.
+  }
+  return getCookieValue(documentChecklistStorageKey);
+}
+
 function getSavedDocumentChecklist() {
   try {
-    const saved = JSON.parse(window.localStorage.getItem(documentChecklistStorageKey) || "[]");
-    return new Set(Array.isArray(saved) ? saved : []);
+    const saved = JSON.parse(getStoredDocumentChecklistText() || "[]");
+    if (!Array.isArray(saved)) return new Set();
+
+    return new Set(saved.map((item) => {
+      if (/^document-\d+$/.test(item)) return item;
+      const legacyIndex = data.documents.indexOf(item);
+      return legacyIndex >= 0 ? documentChecklistId(legacyIndex) : null;
+    }).filter(Boolean));
   } catch {
     return new Set();
   }
 }
 
 function saveDocumentChecklist(checkedItems) {
-  window.localStorage.setItem(documentChecklistStorageKey, JSON.stringify(Array.from(checkedItems)));
+  const serialized = JSON.stringify(Array.from(checkedItems));
+  try {
+    window.localStorage.setItem(documentChecklistStorageKey, serialized);
+  } catch {
+    // Keep going: cookie fallback below covers Safari storage failures.
+  }
+
+  try {
+    document.cookie = `${documentChecklistStorageKey}=${encodeURIComponent(serialized)}; Max-Age=${documentChecklistCookieMaxAge}; Path=/; SameSite=Lax`;
+  } catch {
+    // If the browser blocks every storage mechanism, persistence is not possible.
+  }
+}
+
+function getCheckedDocumentIdsFromPage() {
+  return new Set(Array.from(document.querySelectorAll("#document-list input:checked"))
+    .map((checkbox) => checkbox.dataset.documentId)
+    .filter(Boolean));
 }
 
 function eventState(event, currentDate) {
@@ -223,12 +273,15 @@ function renderPhases() {
 
 function renderDocuments() {
   const checkedItems = getSavedDocumentChecklist();
-  document.getElementById("document-list").innerHTML = data.documents.map((item) => `
+  document.getElementById("document-list").innerHTML = data.documents.map((item, index) => {
+    const documentId = documentChecklistId(index);
+    return `
     <label class="check-row">
-      <input type="checkbox" data-document="${item}" ${checkedItems.has(item) ? "checked" : ""}>
+      <input type="checkbox" data-document-id="${documentId}" ${checkedItems.has(documentId) ? "checked" : ""}>
       <span>${item}</span>
     </label>
-  `).join("");
+  `;
+  }).join("");
 
   document.getElementById("agency-list").innerHTML = data.agencies.map((agency) => `
     <article>
@@ -279,17 +332,19 @@ function bindRowNotes() {
 }
 
 function bindDocumentChecklist() {
-  document.getElementById("document-list").addEventListener("change", (event) => {
-    const checkbox = event.target.closest('input[type="checkbox"][data-document]');
+  const documentList = document.getElementById("document-list");
+  const saveCheckboxState = (event) => {
+    const checkbox = event.target.closest('input[type="checkbox"][data-document-id]');
     if (!checkbox) return;
+    saveDocumentChecklist(getCheckedDocumentIdsFromPage());
+  };
 
-    const checkedItems = getSavedDocumentChecklist();
-    if (checkbox.checked) {
-      checkedItems.add(checkbox.dataset.document);
-    } else {
-      checkedItems.delete(checkbox.dataset.document);
-    }
-    saveDocumentChecklist(checkedItems);
+  ["input", "change"].forEach((eventName) => {
+    documentList.addEventListener(eventName, saveCheckboxState);
+  });
+
+  window.addEventListener("pagehide", () => {
+    saveDocumentChecklist(getCheckedDocumentIdsFromPage());
   });
 }
 
