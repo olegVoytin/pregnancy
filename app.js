@@ -68,13 +68,13 @@ function eventState(event, currentDate) {
 function sourceLink(source) {
   if (!source) return "";
   if (source.startsWith("pregnancy-info-")) {
-    return `<a href="../human-readable/index.html#${source}">${source}</a>`;
+    return `<a href="human-readable/index.html#${source}">${source}</a>`;
   }
   if (source.includes("screening_info")) {
-    return `<a href="../human-readable/screening_info_1.md">${source}</a>`;
+    return `<a href="human-readable/screening_info_1.md">${source}</a>`;
   }
   if (source.includes("deep-research")) {
-    return `<a href="../human-readable/deep-research-report.md">${source}</a>`;
+    return `<a href="human-readable/deep-research-report.md">${source}</a>`;
   }
   if (source === "calculated-from-due-date") {
     return "<span>расчет от ПДР</span>";

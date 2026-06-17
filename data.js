@@ -1,9 +1,9 @@
 window.PREGNANCY_DASHBOARD_DATA = {
   generatedFrom: [
-    "../technical-data/extracted/visual-transcription.json",
-    "../human-readable/screening_info_1.md",
-    "../human-readable/deep-research-report.md",
-    "../technical-data/manifest.json"
+    "technical-data/extracted/visual-transcription.json",
+    "human-readable/screening_info_1.md",
+    "human-readable/deep-research-report.md",
+    "technical-data/manifest.json"
   ],
   pregnancy: {
     patientName: "Galina Voitina",
@@ -172,25 +172,25 @@ window.PREGNANCY_DASHBOARD_DATA = {
     { title: "Административный план", detail: "Research-файл дает общегерманский маршрут. Локальные правила Standesamt, Jugendamt и Auslaenderbehoerde нужно проверять по месту.", confidence: "medium", source: "deep-research-report.md" }
   ],
   sources: [
-    { id: "pregnancy-info-01", status: "transcribed", summary: "Mutterpass cover with patient name and date of birth.", href: "../human-readable/images/pregnancy-info-01.jpg" },
-    { id: "pregnancy-info-02", status: "transcribed", summary: "HIV-Suchtest sticker.", href: "../human-readable/images/pregnancy-info-02.jpg" },
-    { id: "pregnancy-info-03", status: "partially_transcribed", summary: "Terminbestimmung and special findings page.", href: "../human-readable/images/pregnancy-info-03.jpg" },
-    { id: "pregnancy-info-04", status: "partially_transcribed", summary: "Gravidogramm with two visit rows.", href: "../human-readable/images/pregnancy-info-04.jpg" },
-    { id: "pregnancy-info-05", status: "transcribed", summary: "First ultrasound screening.", href: "../human-readable/images/pregnancy-info-05.jpg" },
-    { id: "pregnancy-info-06", status: "reviewed_empty", summary: "Ultrasound control page.", href: "../human-readable/images/pregnancy-info-06.jpg" },
-    { id: "pregnancy-info-07", status: "reviewed_empty", summary: "Further ultrasound page.", href: "../human-readable/images/pregnancy-info-07.jpg" },
-    { id: "pregnancy-info-08", status: "reviewed_empty", summary: "Postpartum/further pregnancy pages.", href: "../human-readable/images/pregnancy-info-08.jpg" },
-    { id: "pregnancy-info-09", status: "reviewed_empty", summary: "Laboratory form pages.", href: "../human-readable/images/pregnancy-info-09.jpg" },
-    { id: "pregnancy-info-10", status: "reviewed_empty", summary: "Fetal RhD and previous pregnancies page.", href: "../human-readable/images/pregnancy-info-10.jpg" },
-    { id: "pregnancy-info-11", status: "partially_transcribed", summary: "Special findings catalogue.", href: "../human-readable/images/pregnancy-info-11.jpg" },
-    { id: "pregnancy-info-12", status: "reviewed_empty", summary: "Gravidogramm continuation.", href: "../human-readable/images/pregnancy-info-12.jpg" },
-    { id: "pregnancy-info-13", status: "reviewed_empty", summary: "Special findings/stationary treatment page.", href: "../human-readable/images/pregnancy-info-13.jpg" },
-    { id: "pregnancy-info-14", status: "reviewed_empty", summary: "Ultrasound form continuation.", href: "../human-readable/images/pregnancy-info-14.jpg" },
-    { id: "pregnancy-info-15", status: "reviewed_empty", summary: "Ultrasound control investigations.", href: "../human-readable/images/pregnancy-info-15.jpg" },
-    { id: "pregnancy-info-16", status: "reviewed_empty", summary: "Growth curve page.", href: "../human-readable/images/pregnancy-info-16.jpg" },
-    { id: "pregnancy-info-17", status: "reviewed_empty", summary: "Further ultrasound/Doppler page.", href: "../human-readable/images/pregnancy-info-17.jpg" },
-    { id: "pregnancy-info-18", status: "reviewed_empty", summary: "Epikrise page.", href: "../human-readable/images/pregnancy-info-18.jpg" },
-    { id: "pregnancy-info-19", status: "reviewed_empty", summary: "Postpartum examination page.", href: "../human-readable/images/pregnancy-info-19.jpg" },
-    { id: "pregnancy-info-20", status: "reviewed_template_text", summary: "Printed note to mother.", href: "../human-readable/images/pregnancy-info-20.jpg" }
+    { id: "pregnancy-info-01", status: "transcribed", summary: "Mutterpass cover with patient name and date of birth.", href: "human-readable/images/pregnancy-info-01.jpg" },
+    { id: "pregnancy-info-02", status: "transcribed", summary: "HIV-Suchtest sticker.", href: "human-readable/images/pregnancy-info-02.jpg" },
+    { id: "pregnancy-info-03", status: "partially_transcribed", summary: "Terminbestimmung and special findings page.", href: "human-readable/images/pregnancy-info-03.jpg" },
+    { id: "pregnancy-info-04", status: "partially_transcribed", summary: "Gravidogramm with two visit rows.", href: "human-readable/images/pregnancy-info-04.jpg" },
+    { id: "pregnancy-info-05", status: "transcribed", summary: "First ultrasound screening.", href: "human-readable/images/pregnancy-info-05.jpg" },
+    { id: "pregnancy-info-06", status: "reviewed_empty", summary: "Ultrasound control page.", href: "human-readable/images/pregnancy-info-06.jpg" },
+    { id: "pregnancy-info-07", status: "reviewed_empty", summary: "Further ultrasound page.", href: "human-readable/images/pregnancy-info-07.jpg" },
+    { id: "pregnancy-info-08", status: "reviewed_empty", summary: "Postpartum/further pregnancy pages.", href: "human-readable/images/pregnancy-info-08.jpg" },
+    { id: "pregnancy-info-09", status: "reviewed_empty", summary: "Laboratory form pages.", href: "human-readable/images/pregnancy-info-09.jpg" },
+    { id: "pregnancy-info-10", status: "reviewed_empty", summary: "Fetal RhD and previous pregnancies page.", href: "human-readable/images/pregnancy-info-10.jpg" },
+    { id: "pregnancy-info-11", status: "partially_transcribed", summary: "Special findings catalogue.", href: "human-readable/images/pregnancy-info-11.jpg" },
+    { id: "pregnancy-info-12", status: "reviewed_empty", summary: "Gravidogramm continuation.", href: "human-readable/images/pregnancy-info-12.jpg" },
+    { id: "pregnancy-info-13", status: "reviewed_empty", summary: "Special findings/stationary treatment page.", href: "human-readable/images/pregnancy-info-13.jpg" },
+    { id: "pregnancy-info-14", status: "reviewed_empty", summary: "Ultrasound form continuation.", href: "human-readable/images/pregnancy-info-14.jpg" },
+    { id: "pregnancy-info-15", status: "reviewed_empty", summary: "Ultrasound control investigations.", href: "human-readable/images/pregnancy-info-15.jpg" },
+    { id: "pregnancy-info-16", status: "reviewed_empty", summary: "Growth curve page.", href: "human-readable/images/pregnancy-info-16.jpg" },
+    { id: "pregnancy-info-17", status: "reviewed_empty", summary: "Further ultrasound/Doppler page.", href: "human-readable/images/pregnancy-info-17.jpg" },
+    { id: "pregnancy-info-18", status: "reviewed_empty", summary: "Epikrise page.", href: "human-readable/images/pregnancy-info-18.jpg" },
+    { id: "pregnancy-info-19", status: "reviewed_empty", summary: "Postpartum examination page.", href: "human-readable/images/pregnancy-info-19.jpg" },
+    { id: "pregnancy-info-20", status: "reviewed_template_text", summary: "Printed note to mother.", href: "human-readable/images/pregnancy-info-20.jpg" }
   ]
 };
